@@ -1,0 +1,16 @@
+version: '3.9'  # Define the Docker Compose file format version
+
+services:
+  app:  # Define a service called "app"
+    image: scraping-img  # Use the ucdriver-img image for the service
+    container_name: scraping-cont
+    platform: linux/amd64  # Specify the platform for the service (Linux with an amd64 architecture)
+    env_file:  # Load environment variables from the .env file
+      - .env
+    build:  # Build the Docker image for the service
+      context: .  # Use the current directory as the build context
+      dockerfile: Dockerfile  # Use Dockerfile in the current directory as the Dockerfile for the service
+    volumes:  # Define volumes for the service
+      - .:/app  # Mount the current directory as a volume in the /app directory of the container
+    ports:  # Map ports between the host and the container
+      - 80:80  # Map host port 80 to container port 80
