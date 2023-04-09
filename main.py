@@ -37,7 +37,7 @@ class UserCredentials(BaseModel):
         example='@person_scrap3 o "random"'
     )
 
-@app.post("/scrape-twitter")
+@app.post("/scrap")
 async def scrape_twitter(user_credentials: UserCredentials):
     random_persons = ['Shiro_sun_', 'FluffyNako', 'lulu_tan__']
     my_user_email = user_credentials.my_user_email
